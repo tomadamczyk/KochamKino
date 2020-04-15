@@ -1,14 +1,15 @@
 package com.example.kochamkino;
 
 
+import com.example.kochamkino.models.Movie;
 import com.example.kochamkino.models.User;
+import com.example.kochamkino.repositories.MovieRepo;
 import com.example.kochamkino.repositories.UserRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
@@ -19,12 +20,17 @@ public class DataLoader {
     private PasswordEncoder passwordEncoder;
 
     @Bean
-    CommandLineRunner initDatabase(UserRepo userRepo) {
+    CommandLineRunner initDatabase(UserRepo userRepo, MovieRepo movieRepo) {
         return args ->
         {
             User user = new User("Piotr", "Stachnio", 'm',"mail@gmail.com","cyta", passwordEncoder.encode("haslo"));
+            Movie movie = new Movie("Tytul", "Vega", 0,"Twoja stara");
+
+            movie.setOwner(user);
+
             userRepo.save(user);
-            System.out.println(user.toString());
+            movieRepo.save(movie);
+
         };
     }
 }

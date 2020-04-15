@@ -22,5 +22,5 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity listUsers() { return new ResponseEntity(userRepo.findAll(), HttpStatus.ACCEPTED);}
+    public ResponseEntity listUsers() { return new ResponseEntity<>(userRepo.findAll(), HttpStatus.ACCEPTED);}
 }

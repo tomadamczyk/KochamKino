@@ -5,10 +5,9 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class MoveDto {
+public class MovieDto {
     private Long id;
     private String title;
-    private Date reliseDate;
     private String director;
     private float grade;
     private String genre;

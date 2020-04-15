@@ -4,6 +4,7 @@ package com.example.kochamkino.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -20,6 +21,12 @@ public class User {
     private String email;
     private String login;
     private String password;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<Movie> ownedMovies;
+
+
+    public User(){}
 
     public User(String firstName, String lastName, char sex, String email, String login, String password) {
         this.firstName = firstName;

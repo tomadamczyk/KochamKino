@@ -1,7 +1,7 @@
 package com.example.kochamkino.repositories;
 
-import com.example.kochamkino.models.Move;
+import com.example.kochamkino.models.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MoveRepo extends JpaRepository<Move, Long> {
+public interface MovieRepo extends JpaRepository<Movie, Long> {
 }
