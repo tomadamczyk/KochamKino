@@ -24,12 +24,14 @@ public class DataLoader {
         return args ->
         {
             User user = new User("Piotr", "Stachnio", 'm',"mail@gmail.com","cyta", passwordEncoder.encode("haslo"));
-            Movie movie = new Movie("Tytul", "Vega", 0,"Twoja stara");
-
-            movie.setOwner(user);
+            //Movie movie = new Movie("Tytul", "Vega", 0,"Twoja stara");
+            //Movie movie1 = new Movie("Tytul2", "Debil", 0, "twoj stary");
+            //movie.setOwner(user);
+            //movie1.setOwner(user);
 
             userRepo.save(user);
-            movieRepo.save(movie);
+            //movieRepo.save(movie);
+            //movieRepo.save(movie1);
 
         };
     }

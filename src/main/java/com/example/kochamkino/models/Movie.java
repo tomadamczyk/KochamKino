@@ -14,7 +14,9 @@ public class Movie {
     @GeneratedValue
     private Long id;
     private String title;
-    private String director;
+    @ManyToOne
+    @JoinColumn(name = "director_id", nullable = false)
+    private Director director;
     private float grade;
     private String genre;
 
@@ -24,9 +26,8 @@ public class Movie {
 
     public Movie(){}
 
-    public Movie(String title, String director, float grade, String genre){
+    public Movie(String title, float grade, String genre){
         this.title = title;
-        this.director = director;
         this.genre = genre;
     }
 
