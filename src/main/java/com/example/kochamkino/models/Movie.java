@@ -1,6 +1,7 @@
 package com.example.kochamkino.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,13 +21,14 @@ public class Movie {
     private float grade;
     private String genre;
 
+
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = true)
     private User owner;
 
     public Movie(){}
 
-    public Movie(String title, float grade, String genre){
+    public Movie(String title, String genre){
         this.title = title;
         this.genre = genre;
     }
