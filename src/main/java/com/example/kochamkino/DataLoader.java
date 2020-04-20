@@ -14,6 +14,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.Collections;
+import java.util.Set;
+
 @Configuration
 @Slf4j
 public class DataLoader {
@@ -28,7 +31,7 @@ public class DataLoader {
             User user = new User("Piotr", "Stachnio", 'm',"mail@gmail.com","cyta", passwordEncoder.encode("haslo"));
             Director director = new Director("Patryk", "Vega");
             Movie movie = new Movie("tytul", "gatunek");
-            movie.setOwner(user);
+            
             movie.setDirector(director);
             directorRep.save(director);
             userRepo.save(user);

@@ -1,10 +1,11 @@
 package com.example.kochamkino.models;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Collections;
+import java.util.Set;
 
 @Data
 @Entity
@@ -15,16 +16,17 @@ public class Movie {
     @GeneratedValue
     private Long id;
     private String title;
+
+    @JsonManagedReference
     @ManyToOne
-    @JoinColumn(name = "director_id", nullable = false)
+    @JoinColumn(name = "director_fk", nullable = true)
     private Director director;
     private float grade;
     private String genre;
 
-
-    @ManyToOne
-    @JoinColumn(name = "owner_id", nullable = true)
-    private User owner;
+    @JsonManagedReference
+    @ManyToMany
+    private Set<User> owners = Collections.emptySet();
 
     public Movie(){}
 
@@ -32,6 +34,7 @@ public class Movie {
         this.title = title;
         this.genre = genre;
     }
+
 
 
 

@@ -1,5 +1,8 @@
 package com.example.kochamkino.models;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +20,7 @@ public class Director{
     private String firstName;
     private String lastName;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "director")
     private Set<Movie> movies;
 
