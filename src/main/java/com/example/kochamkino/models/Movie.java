@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Collections;
-import java.util.Set;
+
+import java.util.LinkedList;
+import java.util.List;
+
 
 @Data
 @Entity
@@ -13,8 +15,8 @@ import java.util.Set;
 public class Movie {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long movieId;
     private String title;
 
     @JsonManagedReference
@@ -26,7 +28,7 @@ public class Movie {
 
     @JsonManagedReference
     @ManyToMany
-    private Set<User> owners = Collections.emptySet();
+    private List<User> owners = new LinkedList<User>();
 
     public Movie(){}
 
@@ -34,7 +36,9 @@ public class Movie {
         this.title = title;
         this.genre = genre;
     }
-
+     public void addOwner(User owner){
+        this.owners.add(owner);
+     }
 
 
 

@@ -29,12 +29,16 @@ public class DataLoader {
         return args ->
         {
             User user = new User("Piotr", "Stachnio", 'm',"mail@gmail.com","cyta", passwordEncoder.encode("haslo"));
+            User user1 = new User("Tomasz", "Adamczyk", 'm', "mail@gmail.com", "tadam", passwordEncoder.encode("hasloTomasza"));
             Director director = new Director("Patryk", "Vega");
             Movie movie = new Movie("tytul", "gatunek");
-            
+
+            movie.addOwner(user);
+            movie.addOwner(user1);
             movie.setDirector(director);
             directorRep.save(director);
             userRepo.save(user);
+            userRepo.save(user1);
             movieRepo.save(movie);
 
         };

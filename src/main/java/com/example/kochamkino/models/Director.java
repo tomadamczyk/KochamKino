@@ -2,11 +2,11 @@ package com.example.kochamkino.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "rezyser")
@@ -14,15 +14,15 @@ import java.util.Set;
 public class Director{
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long directorId;
 
     private String firstName;
     private String lastName;
 
     @JsonBackReference
     @OneToMany(mappedBy = "director")
-    private Set<Movie> movies;
+    private List<Movie> movies = new LinkedList<Movie>();
 
     public Director(){}
 
