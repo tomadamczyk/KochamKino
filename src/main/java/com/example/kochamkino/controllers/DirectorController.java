@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/rezyserzy")
+@RequestMapping("/directors")
 public class DirectorController {
     private final DirectorRepo directorRepo;
 

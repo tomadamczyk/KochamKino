@@ -2,9 +2,11 @@ package com.example.kochamkino;
 
 
 import com.example.kochamkino.models.Director;
+import com.example.kochamkino.models.Grade;
 import com.example.kochamkino.models.Movie;
 import com.example.kochamkino.models.User;
 import com.example.kochamkino.repositories.DirectorRepo;
+import com.example.kochamkino.repositories.GradeRepo;
 import com.example.kochamkino.repositories.MovieRepo;
 import com.example.kochamkino.repositories.UserRepo;
 import lombok.extern.slf4j.Slf4j;
@@ -14,9 +16,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Collections;
-import java.util.Set;
-
 @Configuration
 @Slf4j
 public class DataLoader {
@@ -25,21 +24,19 @@ public class DataLoader {
     private PasswordEncoder passwordEncoder;
 
     @Bean
-    CommandLineRunner initDatabase(UserRepo userRepo, MovieRepo movieRepo, DirectorRepo directorRep) {
+    CommandLineRunner initDatabase(UserRepo userRepo, MovieRepo movieRepo, DirectorRepo directorRep, GradeRepo gradeRepo) {
         return args ->
         {
-            User user = new User("Piotr", "Stachnio", 'm',"mail@gmail.com","cyta", passwordEncoder.encode("haslo"));
-            User user1 = new User("Tomasz", "Adamczyk", 'm', "mail@gmail.com", "tadam", passwordEncoder.encode("hasloTomasza"));
+            User user = new User("Piotr", "Stachnio", 'm', "piotrstachnio@gmail.com", "cyta", passwordEncoder.encode("haslomaslo"), false);
+            Movie movie = new Movie("PitBull","Gowno");
             Director director = new Director("Patryk", "Vega");
-            Movie movie = new Movie("tytul", "gatunek");
+            Grade grade = new Grade(10);
 
-            movie.addOwner(user);
-            movie.addOwner(user1);
-            movie.setDirector(director);
-            directorRep.save(director);
+
             userRepo.save(user);
-            userRepo.save(user1);
             movieRepo.save(movie);
+            directorRep.save(director);
+            gradeRepo.save(grade);
 
         };
     }

@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "rezyser")
+@Table(name = "directors")
 @Data
 public class Director{
 
@@ -20,9 +20,7 @@ public class Director{
     private String firstName;
     private String lastName;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "director")
-    private List<Movie> movies = new LinkedList<Movie>();
+
 
     public Director(){}
 

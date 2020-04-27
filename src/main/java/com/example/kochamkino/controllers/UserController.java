@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/uzytkownicy")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -23,4 +23,5 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity listUsers() { return new ResponseEntity<>(userRepo.findAll(), HttpStatus.ACCEPTED);}
+
 }

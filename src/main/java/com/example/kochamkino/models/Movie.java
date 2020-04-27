@@ -5,13 +5,11 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-import java.util.LinkedList;
-import java.util.List;
 
 
 @Data
 @Entity
-@Table(name = "film")
+@Table(name = "movie")
 public class Movie {
 
     @Id
@@ -19,16 +17,10 @@ public class Movie {
     private Long movieId;
     private String title;
 
-    @JsonManagedReference
-    @ManyToOne
-    @JoinColumn(name = "director_fk", nullable = true)
-    private Director director;
+
+
     private float grade;
     private String genre;
-
-    @JsonManagedReference
-    @ManyToMany
-    private List<User> owners = new LinkedList<User>();
 
     public Movie(){}
 
@@ -36,9 +28,7 @@ public class Movie {
         this.title = title;
         this.genre = genre;
     }
-     public void addOwner(User owner){
-        this.owners.add(owner);
-     }
+
 
 
 

@@ -1,7 +1,7 @@
 package com.example.kochamkino.controllers;
 
 
-import com.example.kochamkino.repositories.MovieRepo;
+import com.example.kochamkino.repositories.GradeRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/movies")
-public class MovieController {
+@RequestMapping("/grades")
+public class GradeController {
 
-    private final MovieRepo movieRepo;
+    private final GradeRepo gradeRepo;
 
 
-    public MovieController(MovieRepo movieRepo){this.movieRepo = movieRepo;}
+    public GradeController(GradeRepo gradeRepo){ this.gradeRepo = gradeRepo;}
 
     @GetMapping
-    public ResponseEntity listMovies() { return new ResponseEntity(movieRepo.findAll(), HttpStatus.ACCEPTED);}
-
-
+    public ResponseEntity listGrades(){
+        return new ResponseEntity(gradeRepo.findAll(), HttpStatus.ACCEPTED);
+    }
 
 
 }
