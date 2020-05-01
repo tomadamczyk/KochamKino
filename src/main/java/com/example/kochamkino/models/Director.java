@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,4 +30,20 @@ public class Director{
         this.lastName = lastName;
     }
 
+    @JsonBackReference
+    @OneToMany(mappedBy = "director")
+    private Collection<Movie> movies = new LinkedList<>();
+
+    public Collection<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(Collection<Movie> movies) {
+        this.movies = movies;
+    }
+
+
+    public void addMovie(Movie movie){
+        this.movies.add(movie);
+    }
 }

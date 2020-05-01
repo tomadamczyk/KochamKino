@@ -30,13 +30,17 @@ public class DataLoader {
             User user = new User("Piotr", "Stachnio", 'm', "piotrstachnio@gmail.com", "cyta", passwordEncoder.encode("haslomaslo"), false);
             Movie movie = new Movie("PitBull","Gowno");
             Director director = new Director("Patryk", "Vega");
-            Grade grade = new Grade(10);
-
+            Grade grade = new Grade(10, user);
+            movie.setGrade(grade);
+            movie.setDirector(director);
 
             userRepo.save(user);
-            movieRepo.save(movie);
             directorRep.save(director);
             gradeRepo.save(grade);
+            movieRepo.save(movie);
+
+
+
 
         };
     }

@@ -1,12 +1,12 @@
 package com.example.kochamkino.models;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
@@ -15,7 +15,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     private String firstName;
     private String lastName;
@@ -25,6 +25,9 @@ public class User {
     private String login;
     private String password;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "graders", cascade = CascadeType.ALL)
+    private List<Grade> grades = new LinkedList<>();
 
 
     public User(){}
@@ -39,4 +42,10 @@ public class User {
         this.password = password;
         this.isAdmin = isAdmin;
     }
+
+    public void addGrade(Grade grade){
+        this.grades.add(grade);
+    }
+
+
 }

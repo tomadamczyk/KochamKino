@@ -1,5 +1,6 @@
 package com.example.kochamkino.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -17,9 +18,6 @@ public class Movie {
     private Long movieId;
     private String title;
 
-
-
-    private float grade;
     private String genre;
 
     public Movie(){}
@@ -29,7 +27,19 @@ public class Movie {
         this.genre = genre;
     }
 
+    @JsonBackReference
+    @OneToOne(optional = false)
+    private Grade grade;
 
+    @JsonManagedReference
+    @ManyToOne
+    private Director director;
 
+    public Grade getGrade() {
+        return grade;
+    }
 
+    public void setGrade(Grade grade) {
+        this.grade = grade;
+    }
 }
