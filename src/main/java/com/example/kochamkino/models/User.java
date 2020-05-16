@@ -3,7 +3,10 @@ package com.example.kochamkino.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -24,6 +27,8 @@ public class User {
     private String email;
     private String login;
     private String password;
+    @Transient
+    private String passwordConfirm;
 
 
 
@@ -38,5 +43,21 @@ public class User {
         this.login = login;
         this.password = password;
         this.isAdmin = isAdmin;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String encode) {
+        this.password = encode;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
     }
 }
