@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+</head>
+<body>
+    <h1>Zarejestruj się</h1>
+    <form th:action="@{/register}" method="post">
+        Imię
+        <input type="text" name="firstName">
+        Nazwisko:
+        <input type="text" name="lastName">
+        Płeć:
+        <input type="text" name="sex">
+        E-mail:
+        <input type="text" name="email">
+        Login:
+        <input type="text" name="username">
+        Hasło:
+        <input type="password" name="password">
+        Rola:
+        <input type="text" name="role">
+        <input type="submit" value="Zarejestruj">
+    </form>
+</body>
+</html>

@@ -25,9 +25,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.headers().disable();
         http.authorizeRequests()
-                .antMatchers("/movies", "/direcotrs").hasAnyRole()
+                .antMatchers("/home").authenticated()
                 .and()
-                .formLogin();
+                .formLogin().defaultSuccessUrl("/home");
 
     }
 }
