@@ -4,17 +4,16 @@ package com.example.kochamkino.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
 @Table(name = "`user`")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,24 +22,20 @@ public class User {
     private String firstName;
     private String lastName;
     private char sex;
-    private boolean isAdmin;
+    private String isAdmin;
     private String email;
-    private String login;
+    private String username;
     private String password;
-    @Transient
-    private String passwordConfirm;
-
-
 
     public User(){}
 
-    public User(String firstName, String lastName, char sex, String email, String login, String password, boolean isAdmin) {
+    public User(String firstName, String lastName, char sex, String email, String username, String password, String isAdmin) {
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.sex = sex;
         this.email = email;
-        this.login = login;
+        this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
     }
@@ -49,15 +44,38 @@ public class User {
         return email;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singleton(new SimpleGrantedAuthority(isAdmin));
+    }
+
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String encode) {
-        this.password = encode;
+    @Override
+    public String getUsername() {
+        return username;
     }
 
-    public String getPasswordConfirm() {
-        return passwordConfirm;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }

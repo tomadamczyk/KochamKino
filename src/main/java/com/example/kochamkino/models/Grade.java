@@ -14,13 +14,14 @@ public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long gradeId;
-
+    private Long usersId;
     private int value;
 
     public Grade(){}
 
-    public Grade(int value){
+    public Grade(int value, Long usersId){
         this.value = value;
+        this.usersId = usersId;
     }
 
 
