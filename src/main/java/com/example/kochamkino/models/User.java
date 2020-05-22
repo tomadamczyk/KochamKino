@@ -19,17 +19,17 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+    private String username;
+    private String password;
+    private String role;
     private String firstName;
     private String lastName;
     private char sex;
-    private String isAdmin;
     private String email;
-    private String username;
-    private String password;
 
     public User(){}
 
-    public User(String firstName, String lastName, char sex, String email, String username, String password, String isAdmin) {
+    public User(String firstName, String lastName, char sex, String email, String username, String password, String role) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,16 +37,12 @@ public class User implements UserDetails {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.isAdmin = isAdmin;
-    }
-
-    public String getEmail() {
-        return email;
+        this.role = role;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority(isAdmin));
+        return Collections.singleton(new SimpleGrantedAuthority(role));
     }
 
     public String getPassword() {
