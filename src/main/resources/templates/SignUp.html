@@ -3,25 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
+    <link rel="stylesheet" th:href="@{/css/signup-style.css}"/>
 </head>
 <body>
-    <h1>Zarejestruj się</h1>
-    <form th:action="@{/register}" method="post">
-        Imię
-        <input type="text" name="firstName">
-        Nazwisko:
-        <input type="text" name="lastName">
-        Płeć:
-        <input type="text" name="sex">
-        E-mail:
-        <input type="text" name="email">
-        Login:
-        <input type="text" name="username">
-        Hasło:
-        <input type="password" name="password">
-        Rola:
-        <input type="text" name="role">
-        <input type="submit" value="Zarejestruj">
+    <form class="form" th:action="@{/register}" method="post">
+    	<h2>Zarejestruj się</h2>
+    	<div class="input">
+    	<div class="inputBox">
+        	<label>Imię</label>
+        	<input type="text" name="firstName">
+        </div>
+        <div class="inputBox">
+        	<label>Nazwisko</label>
+        	<input  type="text" name="lastName">
+        </div>
+        <div class="inputBox">
+        	<label>Płeć</label>
+        	<input  type="text" name="sex">
+        </div>
+        <div class="inputBox">
+        	<label>E-mail</label>
+        	<input  type="text" name="email">
+        </div>
+        <div class="inputBox">
+        	<label>Login</label>
+        	<input  type="text" name="username">
+       	</div>
+       	<div class="inputBox">
+        	<label>Hasło</label>
+       		<input  type="password" name="password">
+        </div>
+        <div class="inputBox">
+       		<label>Rola</label>
+      		<input  type="text" name="role">
+        </div>
+        <div class="submitBox">
+        	<input type="submit" value="Zarejestruj">
+        </div>
+        </div>
     </form>
 </body>
 </html>

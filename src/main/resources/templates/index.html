@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+	<meta charset="UTF-8">
 	<title>Start</title>
+	<link rel="stylesheet" th:href="@{/css/start-style.css}"/>
 </head>
 <body>
-	<a href="http://localhost:9001/signup">Zrejestruj się!</a>
-	<a href="http://localhost:9001/login">Zaloguj się!</a>
+	<div class="mainDiv">
+		<h1>Witaj na KochamKino!</h1>
+		<button style="margin-left: 20px" type="submit" action="submit">
+    	    <a href="http://localhost:9001/signup">Zrejestruj się!</a>
+        </button>
+    	<button style="margin-left: 20px" type="submit" action="submit">
+              <a href="http://localhost:9001/login">Zaloguj się!</a>
+    	</button>
+	</div>
 </body>
 </html>

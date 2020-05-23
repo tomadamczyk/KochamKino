@@ -8,6 +8,8 @@
 }
 
 body {
+	margin-top: 15px;
+	margin-bottom: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -18,8 +20,8 @@ body {
 
 .form {
 	position: relative;
-	width: 350px;
-	height: 700px;
+	width: 400px;
+	height: 800px;
 	padding: 40px 40px 60px;
 	background: #ffffff;
 	text-align: center;
@@ -40,7 +42,7 @@ body {
 }
 
 .form .input .inputBox {
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
  label {
@@ -63,8 +65,17 @@ body {
 
 } 
 
+.submitBox {
+	align-items: center;
+	position: center
+}
+
 input[type="submit"] {
 	margin-top: 30px;
+	width: 200px;
+	height: 40px;
+	align-self: center;
+	position: relative;
 	background-color: #42bfdd;
 	box-shadow: inset -3px -3px 8px rgba(0,0,0,0.05),
 				inset 3px 3px 10px rgba(0,0,0,0.3);
