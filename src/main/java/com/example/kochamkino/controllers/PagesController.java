@@ -21,6 +21,11 @@ public class PagesController {
 
     @GetMapping("/home")
     public String showHomePage() {
+
+
+
+
+
         return "HomePage";
     }
 
@@ -36,4 +41,5 @@ public class PagesController {
 
         return "SignUp";
     }
+
 }

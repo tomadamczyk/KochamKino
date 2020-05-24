@@ -2,11 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home page</title>
 </head>
 <body>
-    <h1>Zalogowano!</h1>
-    <h2>To pewnie będzie strona główna.</h2>
-    <h3>Tymczasem miłego dnia! :)</h3>
+<h2>How to fetch data from database in Spring MVC</h2>
+
+
+<table border="1">
+
+    <th>Sr No</th>
+    <th>Title</th>
+    <th>Genre</th>
+    <th>Grade</th>
+    
+    <c:forEach var="movie" items="${listMovie}" varStatus="status">
+        <tr>
+            <td>${status.index + 1}</td>
+            <td>${movie.title}</td>
+            <td>${movie.genre}</td>
+            <td>${movie.grade}</td>
+
+        </tr>
+    </c:forEach>
+</table>
+
 </body>
 </html>

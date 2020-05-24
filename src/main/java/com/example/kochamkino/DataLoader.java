@@ -39,7 +39,6 @@ public class DataLoader {
             directorRep.save(director);
             gradeRepo.save(grade);
             userRepo.save(user2);
-
         };
     }
 }
