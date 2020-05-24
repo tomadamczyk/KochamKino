@@ -29,7 +29,35 @@ public class Movie {
         this.genre = genre;
     }
 
+    public Long getMovieId() {
+        return movieId;
+    }
 
+    public void setMovieId(Long movieId) {
+        this.movieId = movieId;
+    }
 
+    public String getTitle() {
+        return title;
+    }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public float getGrade() {
+        return grade;
+    }
+
+    public void setGrade(float grade) {
+        this.grade = grade;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 }

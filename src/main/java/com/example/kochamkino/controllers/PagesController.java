@@ -1,6 +1,8 @@
 package com.example.kochamkino.controllers;
 
+import com.example.kochamkino.models.Movie;
 import com.example.kochamkino.models.User;
+import com.example.kochamkino.services.MovieService;
 import com.example.kochamkino.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class PagesController {
 
     private UserService userService;
+    private MovieService movieService;
+    private PagesController(UserService userService, MovieService movieService) {
 
-    private PagesController(UserService userService) {
-        this.userService=userService;
+        this.userService = userService;
+        this.movieService = movieService;
     }
 
 
     @GetMapping("/home")
     public String showHomePage() {
 
-
+        movieService.findAllMovies();
 
 
 

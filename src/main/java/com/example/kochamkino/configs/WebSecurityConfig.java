@@ -1,4 +1,4 @@
-package com.example.kochamkino;
+package com.example.kochamkino.configs;
 
 import com.example.kochamkino.services.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Configuration;
