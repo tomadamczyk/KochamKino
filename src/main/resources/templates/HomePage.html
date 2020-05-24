@@ -8,19 +8,19 @@
 <h2>How to fetch data from database in Spring MVC</h2>
 
 
-<table border="1" th:action="@{/movies}" method="get">
+<table border="1" method="get" th:action="@{/movies}">
 
     <th>Sr No</th>
     <th>Title</th>
     <th>Genre</th>
     <th>Grade</th>
 
-    <c:forEach var="movie" items="${listMovie}" varStatus="status">
+    <c:forEach var="movies" items="${movies}" varStatus="status">
         <tr>
-            <td>${movie.movieId}</td>
-            <td>${movie.title}</td>
-            <td>${movie.genre}</td>
-            <td>${movie.grade}</td>
+            <td>${movies.id}</td>
+            <td>${movies.title}</td>
+            <td>${movies.grade}</td>
+            <td>${movies.genre}</td>
 
         </tr>
     </c:forEach>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -16,6 +17,7 @@ public class PagesController {
 
     private UserService userService;
     private MovieService movieService;
+
     private PagesController(UserService userService, MovieService movieService) {
 
         this.userService = userService;
@@ -26,10 +28,7 @@ public class PagesController {
     @GetMapping("/home")
     public String showHomePage() {
 
-        movieService.findAllMovies();
-
-
-
+        //movieService.findAllMovies();
         return "HomePage";
     }
 
