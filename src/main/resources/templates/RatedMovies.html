@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Ocenione filmy!</h1>
+<div clas="container">
+    <div th:if="${not #lists.isEmpty(grades)}">
+        <table class="table">
+            <tr>
+                <th>ID filmu</th>
+                <th>Ocena</th>
+            </tr>
+            <tr th:each="grade : ${grades}">
+                <td th:text="${grade.gradeId}"></td>
+                <td th:text="${grade.value}"></td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

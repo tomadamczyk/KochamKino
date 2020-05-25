@@ -13,9 +13,14 @@ public class Grade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long gradeId;
-    private Long usersId;
-    private int value;
+
+    public Long gradeId;
+    public Long usersId;
+    public int value;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "movie", referencedColumnName = "movieId")
+    private Movie movie;
 
     public Grade(){}
 
