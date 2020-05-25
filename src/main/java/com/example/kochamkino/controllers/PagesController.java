@@ -4,7 +4,6 @@ import com.example.kochamkino.models.Grade;
 import com.example.kochamkino.models.Movie;
 import com.example.kochamkino.models.User;
 import com.example.kochamkino.services.GradesService;
-import com.example.kochamkino.services.MovieService;
 import com.example.kochamkino.services.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,13 +19,11 @@ import java.util.List;
 public class PagesController {
 
     private UserService userService;
-    private MovieService movieService;
     private GradesService gradesService;
 
-    private PagesController(UserService userService, MovieService movieService, GradesService gradesService) {
+    private PagesController(UserService userService, GradesService gradesService) {
 
         this.userService = userService;
-        this.movieService = movieService;
         this.gradesService = gradesService;
     }
 
