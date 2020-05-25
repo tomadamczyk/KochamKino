@@ -30,8 +30,11 @@ public class PagesController {
         this.gradesService = gradesService;
     }
 
+
+
     @GetMapping("/home")
     public String showHomePage() {
+
         //movieService.findAllMovies();
         return "HomePage";
     }

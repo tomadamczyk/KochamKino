@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>AllMovies</title>
+    <link rel="stylesheet" th:href="@{../css/signup-style.css}"/>
+</head>
+<body>
+<h1>All Movies</h1>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Genre</th>
+        </tr>
+        <tr th:each="movie : ${movies}">
+            <td th:text="${movie.movieId}">id</td>
+            <td th:text="${movie.title}">task</td>
+            <td th:text="${movie.genre}">description</td>
+            <td><label>
+                <input type="number" step="0.5" min = 0 max = 10>
+            </label></td>
+        </tr>
+
+    </table>
+</div>
+<form method="get" action="/home">
+    <button type="submit">Go back</button>
+</form>
+</body>
+</html>
