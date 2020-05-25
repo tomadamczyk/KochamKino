@@ -33,11 +33,15 @@ public class DataLoader {
             Movie movie2 = new Movie("PitBull","Gowno");
             Movie movie3 = new Movie("PitBull","Gowno");
             Director director = new Director("Patryk", "Vega");
-            Grade grade = new Grade(10, 1L);
+            Grade grade = new Grade(10, 2L);
+            Grade grade2 = new Grade(9, 1L);
+            Grade grade3 = new Grade(7, 2L);
             User user2 = new User("Tom",   "Tom", 'm', "tom@gmail.com", "tom", passwordEncoder.encode("tom"), "User");
 
 
 
+            gradeRepo.save(grade2);
+            gradeRepo.save(grade3);
             userRepo.save(user);
             movieRepo.save(movie);
             movieRepo.save(movie1);

@@ -28,7 +28,6 @@ public class PagesController {
     }
 
 
-
     @GetMapping("/home")
     public String showHomePage() {
 

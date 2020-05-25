@@ -16,9 +16,11 @@ public class MovieController {
 
     private final MovieRepo movieRepo;
 
+
     public MovieController(MovieRepo movieRepo){this.movieRepo = movieRepo;}
 
-    @GetMapping
+
+    @GetMapping("/movies")
     public String getAllMovies(Model model){
         Iterable movies = movieRepo.findAll();
         model.addAttribute("movies", movies);
