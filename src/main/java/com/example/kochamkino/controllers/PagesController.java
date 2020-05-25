@@ -1,6 +1,8 @@
 package com.example.kochamkino.controllers;
 
+import com.example.kochamkino.models.Grade;
 import com.example.kochamkino.models.User;
+import com.example.kochamkino.repositories.GradeRepo;
 import com.example.kochamkino.repositories.MovieRepo;
 import com.example.kochamkino.services.GradesService;
 import com.example.kochamkino.services.UserService;
@@ -47,6 +49,12 @@ public class PagesController {
         userService.addUser(user);
 
         return "SignUp";
+    }
+
+    @PostMapping("/newGrade")
+    public String newGrade(Grade grade){
+        gradesService.addGrade(grade);
+        return"HomePage";
     }
 
     @GetMapping("/rated")
