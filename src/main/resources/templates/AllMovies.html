@@ -18,7 +18,9 @@
             <td th:text="${movie.movieId}">id</td>
             <td th:text="${movie.title}">task</td>
             <td th:text="${movie.genre}">description</td>
-            <td>Co to kurwa jest</td>
+            <td><label>
+                <input type="number" step="0.5" min = 0 max = 10>
+            </label></td>
         </tr>
 
     </table>
