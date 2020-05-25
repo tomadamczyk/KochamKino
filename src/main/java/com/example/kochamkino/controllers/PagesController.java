@@ -1,18 +1,15 @@
 package com.example.kochamkino.controllers;
 
-import com.example.kochamkino.models.Grade;
-import com.example.kochamkino.models.Movie;
 import com.example.kochamkino.models.User;
+import com.example.kochamkino.repositories.MovieRepo;
 import com.example.kochamkino.services.GradesService;
 import com.example.kochamkino.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Generated;
-import java.util.List;
 
 
 @Controller
@@ -20,7 +17,10 @@ public class PagesController {
 
     private UserService userService;
     private GradesService gradesService;
+    @Autowired
+    private MovieRepo movieRepo;
 
+    @Autowired
     private PagesController(UserService userService, GradesService gradesService) {
 
         this.userService = userService;
@@ -29,9 +29,9 @@ public class PagesController {
 
 
     @GetMapping("/home")
-    public String showHomePage() {
+    public String showHomePage(Model model) {
+        model.addAttribute("movies", movieRepo.findAll());
 
-        //movieService.findAllMovies();
         return "HomePage";
     }
 
