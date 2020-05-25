@@ -7,17 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/movies")
 public class MovieController {
 
     private final MovieRepo movieRepo;
 
-
     public MovieController(MovieRepo movieRepo){this.movieRepo = movieRepo;}
 
-
-    @GetMapping("/movies")
+    @GetMapping
     public String getAllMovies(Model model){
         Iterable movies = movieRepo.findAll();
         model.addAttribute("movies", movies);
