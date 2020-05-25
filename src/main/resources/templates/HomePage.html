@@ -1,40 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Home page</title>
+    <meta charset="UTF-8"/>
+    <title>AllMovies</title>
+    <link rel="stylesheet" th:href="@{/css/signup-style.css}"/>
 </head>
-
-<script>
-    function getMovies(){
-         
-    }
-
-</script>
-
-
 <body>
-<h2>How to fetch data from database in Spring MVC</h2>
-
-
-<table border="1" method="get" th:action="@{/movies}">
-
-    <th>Sr No</th>
-    <th>Title</th>
-    <th>Genre</th>
-    <th>Grade</th>
-
-    <c:forEach var="movies" items="${movies}" varStatus="status">
-        <tr>
-            <td>${movies.id}</td>
-            <td>${movies.title}</td>
-            <td>${movies.grade}</td>
-            <td>${movies.genre}</td>
-
-        </tr>
-    </c:forEach>
-</table>
-
-
+<h1>Main Page</h1>
+<form method="get" action="/movies">
+    <button type="submit">Show all movies</button>
+</form>
 </body>
 </html>
