@@ -1,32 +1,39 @@
 package com.example.kochamkino.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "grade")
-public class Grade {
+public class Grade implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long gradeId;
 
-    public Long gradeId;
-    public Long usersId;
+    @JsonManagedReference
+    @OneToOne
+    public User usersId;
     public int value;
 
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "movie", referencedColumnName = "movieId")
     private Movie movie;
 
     public Grade(){}
 
-    public Grade(int value, Long usersId){
+    public Grade(int value, User users){
         this.value = value;
-        this.usersId = usersId;
+        this.usersId = users;
+
     }
 
 

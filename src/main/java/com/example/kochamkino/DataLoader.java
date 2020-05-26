@@ -28,26 +28,27 @@ public class DataLoader {
         return args ->
         {
             User user = new User("Piotr", "Stachnio", 'm', "piotrstachnio@gmail.com", "cyta", passwordEncoder.encode("haslomaslo"), "User");
-            Movie movie = new Movie("PitBull","Gowno");
-            Movie movie1 = new Movie("PitBull","Gowno");
-            Movie movie2 = new Movie("PitBull","Gowno");
-            Movie movie3 = new Movie("PitBull","Gowno");
+
             Director director = new Director("Patryk", "Vega");
-            Grade grade = new Grade(10, 2L);
-            Grade grade2 = new Grade(9, 1L);
-            Grade grade3 = new Grade(7, 2L);
+            Movie movie = new Movie("PitBull","Gowno", director);
+            Movie movie1 = new Movie("PitBull","Gowno", director);
+            Movie movie2 = new Movie("PitBull","Gowno", director);
+            Movie movie3 = new Movie("PitBull","Gowno", director);
+
+            Grade grade = new Grade(10, user);
             User user2 = new User("Tom",   "Tom", 'm', "tom@gmail.com", "tom", passwordEncoder.encode("tom"), "User");
 
 
 
-            gradeRepo.save(grade2);
-            gradeRepo.save(grade3);
             userRepo.save(user);
+
+            directorRep.save(director);
+
             movieRepo.save(movie);
             movieRepo.save(movie1);
             movieRepo.save(movie2);
             movieRepo.save(movie3);
-            directorRep.save(director);
+
             gradeRepo.save(grade);
             userRepo.save(user2);
         };

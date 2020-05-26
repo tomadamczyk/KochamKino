@@ -21,5 +21,9 @@ public class GradesService {
         return gradeRepo.findByUsersId(userId);
     }
 
+    public void addGrade(Grade grade){
+        gradeRepo.save(grade);
+    }
+
 
 }
