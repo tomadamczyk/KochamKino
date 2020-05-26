@@ -31,7 +31,7 @@ public class User implements UserDetails, Serializable {
 
     public User(){}
 
-    public User(String firstName, String lastName, char sex, String email, String username, String password, String role) {
+    public User(String firstName, String lastName, char sex, String email, String username, String password) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,7 +39,6 @@ public class User implements UserDetails, Serializable {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.role = role;
     }
 
     @Override

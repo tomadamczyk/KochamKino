@@ -30,7 +30,6 @@ public class PagesController {
     }
 
 
-
     @GetMapping("/home")
     public String showHomePage(Model model) {
         model.addAttribute("movies", movieRepo.findAll());
@@ -61,7 +60,7 @@ public class PagesController {
     public String showRatedMovies(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User)authentication.getPrincipal();
-        model.addAttribute("grades", gradesService.findAllUsersGrades(user.getUserId()));
+        model.addAttribute("grades", gradesService.findAllUsersGrades(user));
 
         return "RatedMovies";
     }

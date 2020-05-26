@@ -76,7 +76,7 @@ input[type="submit"] {
 	height: 40px;
 	align-self: center;
 	position: relative;
-	background-color: #42bfdd;
+	background-color: #00FF7F;
 	box-shadow: inset -3px -3px 8px rgba(0,0,0,0.05),
 				inset 3px 3px 10px rgba(0,0,0,0.3);
 }

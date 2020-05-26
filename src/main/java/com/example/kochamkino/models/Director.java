@@ -59,6 +59,10 @@ public class Director{
         this.lastName = lastName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public List<Movie> getMovies(){
         return this.movies;
     }

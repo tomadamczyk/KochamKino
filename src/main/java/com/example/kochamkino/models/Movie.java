@@ -19,6 +19,7 @@ public class Movie implements Serializable {
     @JsonBackReference
     private Long movieId;
     private String title;
+    private int releaseYear;
 
     @JsonBackReference
     @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
@@ -29,13 +30,13 @@ public class Movie implements Serializable {
     private float grade;
     private String genre;
 
-    public Movie() {
-    }
+    public Movie(){}
 
-    public Movie(String title, String genre, Director director) {
+    public Movie(String title, String genre, Director director, int releaseYear) {
         this.title = title;
         this.genre = genre;
         setDirector(director);
+        this.releaseYear = releaseYear;
     }
 
     public void setDirector(Director director){
@@ -48,10 +49,6 @@ public class Movie implements Serializable {
             director.addMovie(this, false);
         }
     }
-
-
-
-
 
     public Long getMovieId() {
         return movieId;
@@ -89,6 +86,11 @@ public class Movie implements Serializable {
     public Director getDirector() {
         return director;
     }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
 }
 
 

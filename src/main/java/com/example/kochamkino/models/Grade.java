@@ -24,8 +24,8 @@ public class Grade implements Serializable {
     public int value;
 
     @JsonManagedReference
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "movie", referencedColumnName = "movieId")
+    @OneToOne //(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "movie", referencedColumnName = "movieId")
     private Movie movie;
 
     public Grade(){}

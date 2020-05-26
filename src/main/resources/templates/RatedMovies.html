@@ -2,19 +2,34 @@
 <html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" th:href="@{../css/movies-style.css}"/>
+    <title>Ocenione</title>
 </head>
 <body>
-<h1>Ocenione filmy!</h1>
-<div clas="container">
+<div class="buttonsDiv">
+    <button style="margin-left: 20px" onclick="history.back()" type="submit" action="submit">
+        <a>Powrót</a>
+    </button>
+    <button style="margin-left: 20px" type="submit" action="submit">
+        <a href="http://localhost:9001/rated">Ocenione filmy</a>
+    </button>
+    <button style="margin-left: 20px" type="submit" action="submit">
+        <a href="http://localhost:9001/logout">Wyloguj</a>
+    </button>
+</div>
+
+<div class="mainDiv">
+    <h1>Ocenione filmy!</h1>
     <div th:if="${not #lists.isEmpty(grades)}">
         <table class="table">
             <tr>
                 <th>ID filmu</th>
+                <th>Tytuł filmu</th>
                 <th>Ocena</th>
             </tr>
             <tr th:each="grade : ${grades}">
                 <td th:text="${grade.gradeId}"></td>
+                <td th:text="${grade.movie.getTitle()}"></td>
                 <td th:text="${grade.value}"></td>
             </tr>
 
