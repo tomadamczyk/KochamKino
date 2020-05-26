@@ -30,9 +30,10 @@ public class Grade implements Serializable {
 
     public Grade(){}
 
-    public Grade(int value, User users){
+    public Grade(int value, User users, Movie movie){
         this.value = value;
         this.usersId = users;
+        this.movie = movie;
 
     }
 

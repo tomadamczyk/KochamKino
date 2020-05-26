@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,8 +23,32 @@ public class Director{
     private String lastName;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "director")
-    private List<Movie> movie;
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "director")
+    private List<Movie> movies = new ArrayList<>();
+
+    public void addMovie(Movie movie){
+        addMovie(movie, true);
+    }
+
+    public void addMovie(Movie movie, boolean set){
+       if (movie != null){
+           if(getMovies().contains(movie)){
+               getMovies().set(getMovies().indexOf(movie), movie);
+           }
+           else{
+               getMovies().add(movie);
+           }
+           if(set){
+               movie.setDirector(this, false);
+           }
+       }
+    }
+
+    public void removeMovie(Movie movie){
+        getMovies().remove(movie);
+        movie.setDirector(null);
+    }
+
 
 
 
@@ -32,6 +57,10 @@ public class Director{
     public Director(String firstName, String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public List<Movie> getMovies(){
+        return this.movies;
     }
 
 }

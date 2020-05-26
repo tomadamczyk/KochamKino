@@ -31,11 +31,11 @@ public class DataLoader {
 
             Director director = new Director("Patryk", "Vega");
             Movie movie = new Movie("PitBull","Gowno", director);
-            Movie movie1 = new Movie("PitBull","Gowno", director);
-            Movie movie2 = new Movie("PitBull","Gowno", director);
-            Movie movie3 = new Movie("PitBull","Gowno", director);
+//            Movie movie1 = new Movie("PitBull","Gowno", director);
+//            Movie movie2 = new Movie("PitBull","Gowno", director);
+//            Movie movie3 = new Movie("PitBull","Gowno", director);
 
-            Grade grade = new Grade(10, user);
+            //Grade grade = new Grade(10, user, movie1);
             User user2 = new User("Tom",   "Tom", 'm', "tom@gmail.com", "tom", passwordEncoder.encode("tom"), "User");
 
 
@@ -45,11 +45,11 @@ public class DataLoader {
             directorRep.save(director);
 
             movieRepo.save(movie);
-            movieRepo.save(movie1);
-            movieRepo.save(movie2);
-            movieRepo.save(movie3);
+//            movieRepo.save(movie1);
+//            movieRepo.save(movie2);
+//            movieRepo.save(movie3);
 
-            gradeRepo.save(grade);
+            //gradeRepo.save(grade);
             userRepo.save(user2);
         };
     }
