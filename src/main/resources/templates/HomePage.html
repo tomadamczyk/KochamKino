@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>AllMovies</title>
@@ -23,13 +23,17 @@
     <table class="table">
         <tr>
             <th>Id</th>
-            <th>Title</th>
-            <th>Genre</th>
+            <th>Tytuł</th>
+            <th>Nazwisko reżysera</th>
+            <th>Gatunek</th>
+            <th>Rok premiery</th>
         </tr>
         <tr th:each="movie : ${movies}">
             <td th:text="${movie.movieId}">id</td>
             <td th:text="${movie.title}">task</td>
+            <td th:text="${movie.director.getLastName()}">director</td>
             <td th:text="${movie.genre}">description</td>
+            <td th:text="${movie.releaseYear}">year</td>
             <td><label>
                 <input type="number" step="0.5" min = 0 max = 10>
             </label></td>

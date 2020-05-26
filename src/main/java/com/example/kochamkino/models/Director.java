@@ -34,4 +34,7 @@ public class Director{
         this.lastName = lastName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
 }

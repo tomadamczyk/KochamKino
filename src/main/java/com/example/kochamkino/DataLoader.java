@@ -30,10 +30,10 @@ public class DataLoader {
             User user = new User("Piotr", "Stachnio", 'm', "piotrstachnio@gmail.com", "cyta", passwordEncoder.encode("haslomaslo"), "User");
 
             Director director = new Director("Patryk", "Vega");
-            Movie movie = new Movie("PitBull","Gowno", director);
-            Movie movie1 = new Movie("PitBull","Gowno", director);
-            Movie movie2 = new Movie("PitBull","Gowno", director);
-            Movie movie3 = new Movie("PitBull","Gowno", director);
+            Movie movie = new Movie("PitBull","Gowno", director, 2000);
+            Movie movie1 = new Movie("PitBull","Gowno", director, 2000);
+            Movie movie2 = new Movie("PitBull","Gowno", director, 2000);
+            Movie movie3 = new Movie("PitBull","Gowno", director, 2000);
 
             Grade grade = new Grade(10, user, movie);
             User user2 = new User("Tom",   "Tom", 'm', "tom@gmail.com", "tom", passwordEncoder.encode("tom"), "User");
