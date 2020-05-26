@@ -1,6 +1,7 @@
 package com.example.kochamkino.services;
 
 import com.example.kochamkino.models.Grade;
+import com.example.kochamkino.models.User;
 import com.example.kochamkino.repositories.GradeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class GradesService {
         this.gradeRepo=gradeRepo;
     }
 
-    public List<Grade> findAllUsersGrades(Long userId) {
-        return gradeRepo.findByUsersId(userId);
+    public List<Grade> findAllUsersGrades(User user) {
+        return gradeRepo.findByUsersId(user);
     }
 
     public void addGrade(Grade grade){
