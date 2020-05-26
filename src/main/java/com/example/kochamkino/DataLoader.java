@@ -27,8 +27,8 @@ public class DataLoader {
     CommandLineRunner initDatabase(UserRepo userRepo, MovieRepo movieRepo, DirectorRepo directorRep, GradeRepo gradeRepo) {
         return args ->
         {
-            User user = new User("Piotr", "Stachnio", 'm', "piotrstachnio@gmail.com", "cyta", passwordEncoder.encode("haslomaslo"), "User");
-
+            User user = new User("Piotr", "Stachnio", 'm', "piotrstachnio@gmail.com", "cyta", passwordEncoder.encode("haslomaslo"));
+            user.setRole("User");
             Director director = new Director("Patryk", "Vega");
             Movie movie = new Movie("PitBull","Gowno", director, 2000);
             Movie movie1 = new Movie("PitBull","Gowno", director, 2000);
@@ -36,7 +36,8 @@ public class DataLoader {
             Movie movie3 = new Movie("PitBull","Gowno", director, 2000);
 
             Grade grade = new Grade(10, user, movie);
-            User user2 = new User("Tom",   "Tom", 'm', "tom@gmail.com", "tom", passwordEncoder.encode("tom"), "User");
+            User user2 = new User("Tom",   "Tom", 'm', "tom@gmail.com", "tom", passwordEncoder.encode("tom"));
+            user2.setRole("User");
             Grade grade1 = new Grade(9, user2, movie);
             Grade grade2 = new Grade(2, user2, movie);
 
