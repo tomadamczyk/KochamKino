@@ -53,7 +53,9 @@ public class PagesController {
     @PostMapping("/newGrade")
     public String newGrade(Grade grade){
         gradesService.addGrade(grade);
+
         return"HomePage";
+
     }
 
     @GetMapping("/rated")

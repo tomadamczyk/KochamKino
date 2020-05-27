@@ -34,10 +34,17 @@
             <td th:text="${movie.director.getLastName()}">director</td>
             <td th:text="${movie.genre}">description</td>
             <td th:text="${movie.releaseYear}">year</td>
-            <td><label>
-                <input type="number" step="0.5" min = 0 max = 10>
-            </label></td>
-            <td><button>Oceń</button></td>
+            <td><form class="form" th:action="@{/newGrade}" method="post">
+                <div class="input">
+                    <div class="inputBox">
+                        <label>Wartosc numeryczna</label>
+                        <input type="number" name="value">
+                    </div>
+                    <div class="submitBox">
+                        <input type="submit" value="Ocen">
+                    </div>
+                </div>
+            </form></td>
         </tr>
 
     </table>

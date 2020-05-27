@@ -49,11 +49,12 @@ public class DataLoader {
             directorRep.save(director);
 
             movieRepo.save(movie);
-//            movieRepo.save(movie1);
-//            movieRepo.save(movie2);
-//            movieRepo.save(movie3);
+
 
             //gradeRepo.save(grade);
+            movieRepo.save(movie);
+            movieRepo.save(movie1);
+            movieRepo.save(movie2);
             userRepo.save(user2);
             gradeRepo.save(grade1);
             gradeRepo.save(grade2);
