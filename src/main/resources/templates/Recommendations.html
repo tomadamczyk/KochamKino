@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>AllMovies</title>
+    <link rel="stylesheet" th:href="@{../css/movies-style.css}"/>
+</head>
+<body>
+<div class="buttonsDiv">
+    <button style="margin-left: 20px" onclick="history.back()" type="submit" action="submit">
+        <a>Powrót</a>
+    </button>
+    <button style="margin-left: 20px" type="submit" action="submit">
+        <a href="http://localhost:9001/rated">Ocenione filmy</a>
+    </button>
+    <button style="margin-left: 20px" type="submit" action="submit">
+        <a href="http://localhost:9001/home">Strona główna</a>
+    </button>
+    <button style="margin-left: 20px" type="submit" action="submit">
+        <a href="http://localhost:9001/logout">Wyloguj</a>
+    </button>
+</div>
+
+<div class="mainDiv">
+    <h1>Polecane dla Ciebie!</h1>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Tytuł</th>
+            <th>Nazwisko reżysera</th>
+            <th>Gatunek</th>
+            <th>Rok premiery</th>
+        </tr>
+        <tr th:each="movie : ${movies}">
+            <td th:text="${movie.movieId}">id</td>
+            <td th:text="${movie.title}">task</td>
+            <td th:text="${movie.director.getLastName()}">director</td>
+            <td th:text="${movie.genre}">description</td>
+            <td th:text="${movie.releaseYear}">year</td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

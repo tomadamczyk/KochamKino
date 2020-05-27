@@ -11,6 +11,9 @@
          <a>Powrót</a>
      </button>
      <button style="margin-left: 20px" type="submit" action="submit">
+         <a href="http://localhost:9001/recommendations">Polecane dla Ciebie</a>
+     </button>
+     <button style="margin-left: 20px" type="submit" action="submit">
          <a href="http://localhost:9001/rated">Ocenione filmy</a>
      </button>
      <button style="margin-left: 20px" type="submit" action="submit">
@@ -22,11 +25,11 @@
     <h1>Wszystkie filmy</h1>
     <table class="table">
         <tr>
-            <th>Id</th>
-            <th>Tytuł</th>
-            <th>Nazwisko reżysera</th>
-            <th>Gatunek</th>
-            <th>Rok premiery</th>
+            <th>Id <div class="search-div"><input class="searchbar" type="text" id="IDInput" onkeyup="findBy(0)" placeholder="Szukaj..."></div></th>
+            <th>Tytuł <div class="search-div"><input class="searchbar" type="text" id="titleInput" onkeyup="findBy(1)" placeholder="Szukaj..."></div></th>
+            <th>Nazwisko reżysera <div class="search-div"><input class="searchbar" type="text" id="lastNameInput" onkeyup="findBy(2)" placeholder="Szukaj..."></div></th>
+            <th>Gatunek <div class="search-div"><input class="searchbar" type="text" id="genreInput" onkeyup="findBy(3)" placeholder="Szukaj..."></div></th>
+            <th>Rok premiery <div class="search-div"><input class="searchbar" type="text" id="yearInput" onkeyup="findBy(4)" placeholder="Szukaj..."></div></th>
             <th>Wystaw ocenę (0-10)</th>
         </tr>
         <tr th:each="movie : ${movies}">
@@ -50,5 +53,49 @@
 
     </table>
 </div>
+ <script type="text/javascript">
+     function find(elementsID, position) {
+
+         var input, filter, table, tr, td, i, txtValue;
+         input = document.getElementById(elementsID);
+         filter = input.value.toUpperCase();
+         table = document.getElementsByTagName("table")[0];
+         table2 = table.getElementsByTagName("tbody")[0];
+         tr = table2.getElementsByTagName("tr");
+
+         for (i = 0; i < tr.length; i++) {
+             td = tr[i].getElementsByTagName("td")[position];
+             if (td) {
+                 txtValue = td.textContent || td.innerText;
+                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                     tr[i].style.display = "";
+                 } else {
+                     tr[i].style.display = "none";
+                 }
+             }
+         }
+     }
+
+
+     function findBy(whichInput) {
+         if (whichInput == 0) {
+             find("IDInput", 0)
+         }
+         else if (whichInput == 1) {
+             find("titleInput", 1)
+         }
+         else if (whichInput == 2) {
+             find("lastNameInput", 2)
+         }
+         else if (whichInput == 3) {
+             find("genreInput", 3)
+         }
+         else if (whichInput == 4) {
+             find("yearInput", 4)
+         }
+         else console.log("Coś nie tak")
+     }
+
+ </script>
 </body>
 </html>

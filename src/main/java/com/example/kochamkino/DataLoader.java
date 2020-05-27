@@ -30,10 +30,11 @@ public class DataLoader {
             User user = new User("Piotr", "Stachnio", 'm', "piotrstachnio@gmail.com", "cyta", passwordEncoder.encode("haslomaslo"));
             user.setRole("User");
             Director director = new Director("Patryk", "Vega");
-            Movie movie = new Movie("PitBull","Gowno", director, 2000);
-            Movie movie1 = new Movie("PitBull","Gowno", director, 2000);
-            Movie movie2 = new Movie("PitBull","Gowno", director, 2000);
-            Movie movie3 = new Movie("PitBull","Gowno", director, 2000);
+            Director director2 = new Director("Tommy", "Bwoii");
+            Movie movie = new Movie("PitBull","Artsy", director, 2000);
+            Movie movie1 = new Movie("Pill","Gowno", director, 2001);
+            Movie movie2 = new Movie("Pit","Thriller", director2, 2002);
+            Movie movie3 = new Movie("Bull","Iksde", director2, 2000);
 
 
             //Grade grade = new Grade(10, user, movie1);
@@ -47,7 +48,7 @@ public class DataLoader {
             userRepo.save(user);
 
             directorRep.save(director);
-
+            directorRep.save(director2);
             movieRepo.save(movie);
 
 

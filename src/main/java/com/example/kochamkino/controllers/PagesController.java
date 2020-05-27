@@ -5,6 +5,7 @@ import com.example.kochamkino.models.User;
 import com.example.kochamkino.repositories.GradeRepo;
 import com.example.kochamkino.repositories.MovieRepo;
 import com.example.kochamkino.services.GradesService;
+import com.example.kochamkino.services.MoviesService;
 import com.example.kochamkino.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -20,20 +21,20 @@ public class PagesController {
 
     private UserService userService;
     private GradesService gradesService;
-    @Autowired
-    private MovieRepo movieRepo;
+    private MoviesService moviesService;
 
     @Autowired
-    private PagesController(UserService userService, GradesService gradesService) {
+    private PagesController(UserService userService, GradesService gradesService, MoviesService moviesService) {
 
         this.userService = userService;
         this.gradesService = gradesService;
+        this.moviesService = moviesService;
     }
 
 
     @GetMapping("/home")
     public String showHomePage(Model model) {
-        model.addAttribute("movies", movieRepo.findAll());
+        model.addAttribute("movies", moviesService.findAllMovies());
 
         return "HomePage";
     }
@@ -66,5 +67,12 @@ public class PagesController {
         model.addAttribute("grades", gradesService.findAllUsersGrades(user));
 
         return "RatedMovies";
+    }
+
+    @GetMapping("/recommendations")
+    public String showRecommendations(Model model) {
+        model.addAttribute("movies", moviesService.findAllMovies());
+
+        return "Recommendations";
     }
 }
