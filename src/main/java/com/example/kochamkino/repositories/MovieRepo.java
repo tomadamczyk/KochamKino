@@ -9,4 +9,5 @@ public interface MovieRepo extends JpaRepository<Movie, Long> {
 
     @Override
     List<Movie> findAll();
+    Movie findByMovieId(Long movieId);
 }

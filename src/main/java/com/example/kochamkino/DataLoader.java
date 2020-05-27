@@ -58,6 +58,7 @@ public class DataLoader {
             userRepo.save(user2);
             gradeRepo.save(grade1);
             gradeRepo.save(grade2);
+            gradeRepo.save(grade);
         };
     }
 }

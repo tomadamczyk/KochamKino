@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 @Controller
@@ -44,17 +45,17 @@ public class PagesController {
     }
 
     @PostMapping("/register")
-    public String register(User user) {
+    public RedirectView register(User user) {
         userService.addUser(user);
 
-        return "SignUp";
+        return new RedirectView("/");
     }
 
     @PostMapping("/newGrade")
-    public String newGrade(Grade grade){
-        gradesService.addGrade(grade);
+    public RedirectView newGrade(Long movieId, int value){
+        gradesService.addGrade(movieId, value);
 
-        return"HomePage";
+        return new RedirectView("/home");
 
     }
 

@@ -55,11 +55,15 @@ tr {
 	width: 800px;
 	border-radius: 40px;
 	text-align: center;
-	margin-left: 30px;
+	margin-left: 50px;
 	margin-right: 30px;
 	margin-bottom: 30px;
 }
 
+.input {
+	display:flex;
+	width: 250px;
+}
 
 button {
 	background-color: #00FF7F;
