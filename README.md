@@ -1,1 +1,1 @@
-Web application project of E-system engineering – Java technology uni class.
+Web application project for "E-system engineering – Java technology" uni course.lass.
