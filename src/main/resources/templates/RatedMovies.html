@@ -31,7 +31,7 @@
                 <th>Ocena</th>
             </tr>
             <tr th:each="grade : ${grades}">
-                <td th:text="${grade.gradeId}"></td>
+                <td th:text="${grade.movie.getMovieId()}"></td>
                 <td th:text="${grade.movie.getTitle()}"></td>
                 <td th:text="${grade.value}"></td>
             </tr>

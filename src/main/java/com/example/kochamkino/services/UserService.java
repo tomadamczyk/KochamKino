@@ -2,6 +2,8 @@ package com.example.kochamkino.services;
 
 import com.example.kochamkino.models.User;
 import com.example.kochamkino.repositories.UserRepo;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +22,13 @@ public class UserService {
         user.setRole("User");
         userRepo.save(user);
     }
+
+    public User currentlyLoggedUser() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User)authentication.getPrincipal();
+
+        return user;
+    }
+
 }

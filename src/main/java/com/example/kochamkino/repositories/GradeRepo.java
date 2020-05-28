@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface GradeRepo extends JpaRepository<Grade, Long> {
     List<Grade> findByUsersId(User user);
+    List<Grade> findByValue(int value);
+    List<Grade> findByValueBetween(int value1, int value2);
 }

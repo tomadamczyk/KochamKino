@@ -6,6 +6,7 @@ import com.example.kochamkino.repositories.GradeRepo;
 import com.example.kochamkino.repositories.MovieRepo;
 import com.example.kochamkino.services.GradesService;
 import com.example.kochamkino.services.MoviesService;
+import com.example.kochamkino.services.RecommendationsService;
 import com.example.kochamkino.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,13 +23,15 @@ public class PagesController {
     private UserService userService;
     private GradesService gradesService;
     private MoviesService moviesService;
+    private RecommendationsService recommendationsService;
 
     @Autowired
-    private PagesController(UserService userService, GradesService gradesService, MoviesService moviesService) {
+    private PagesController(UserService userService, GradesService gradesService, MoviesService moviesService, RecommendationsService recommendationsService) {
 
         this.userService = userService;
         this.gradesService = gradesService;
         this.moviesService = moviesService;
+        this.recommendationsService = recommendationsService;
     }
 
 
@@ -62,16 +65,16 @@ public class PagesController {
 
     @GetMapping("/rated")
     public String showRatedMovies(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User)authentication.getPrincipal();
-        model.addAttribute("grades", gradesService.findAllUsersGrades(user));
+
+        model.addAttribute("grades", gradesService.findAllUsersGrades());
 
         return "RatedMovies";
     }
 
     @GetMapping("/recommendations")
     public String showRecommendations(Model model) {
-        model.addAttribute("movies", moviesService.findAllMovies());
+
+        model.addAttribute("movies", recommendationsService.getRecommendations());
 
         return "Recommendations";
     }
