@@ -31,10 +31,18 @@ public class DataLoader {
             user.setRole("User");
             Director director = new Director("Patryk", "Vega");
             Director director2 = new Director("Tommy", "Bwoii");
-            Movie movie = new Movie("PitBull","Artsy", director, 2000);
-            Movie movie1 = new Movie("Pill","Gowno", director, 2001);
+            Director director3 = new Director("James", "Cameron");
+            Director director4 = new Director("Jas", "Fasola");
+            Director director5 = new Director("Christopher", "Nolan");
+            Movie movie = new Movie("Avatar","Fantasy", director3, 2012);
+            Movie movie1 = new Movie("Harry Potter","Fantasy", director, 2001);
             Movie movie2 = new Movie("Pit","Thriller", director2, 2002);
-            Movie movie3 = new Movie("Bull","Iksde", director2, 2000);
+            Movie movie3 = new Movie("The Last Dance","Document", director2, 2020);
+            Movie movie4 = new Movie("Titanic", "Romance", director3,1997);
+            Movie movie5 = new Movie("Rocetman","Document",director4, 2020);
+            Movie movie6 = new Movie("Batman: Begins", "Action",director5 ,2005);
+            Movie movie7 = new Movie("Batman: The Dark Knight", "Action", director5, 2008);
+            Movie movie8 = new Movie("Batman: The Dark Knight Rises", "Action", director5, 2012);
 
 
             //Grade grade = new Grade(10, user, movie1);
@@ -42,23 +50,31 @@ public class DataLoader {
             Grade grade = new Grade(10, user, movie);
             User user2 = new User("Tom",   "Tom", 'm', "tom@gmail.com", "tom", passwordEncoder.encode("tom"));
             user2.setRole("User");
-            Grade grade1 = new Grade(9, user2, movie);
-            Grade grade2 = new Grade(2, user2, movie);
+           // Grade grade1 = new Grade(9, user2, movie);
+           // Grade grade2 = new Grade(2, user2, movie);
 
             userRepo.save(user);
 
             directorRep.save(director);
             directorRep.save(director2);
-            movieRepo.save(movie);
+            directorRep.save(director3);
+            directorRep.save(director4);
+            directorRep.save(director5);
+            movieRepo.save(movie3);
+            movieRepo.save(movie4);
+            movieRepo.save(movie5);
+            movieRepo.save(movie6);
+            movieRepo.save(movie7);
+            movieRepo.save(movie8);
 
 
-            //gradeRepo.save(grade);
+
             movieRepo.save(movie);
             movieRepo.save(movie1);
             movieRepo.save(movie2);
             userRepo.save(user2);
-            gradeRepo.save(grade1);
-            gradeRepo.save(grade2);
+            //gradeRepo.save(grade1);
+            //gradeRepo.save(grade2);
             gradeRepo.save(grade);
         };
     }
